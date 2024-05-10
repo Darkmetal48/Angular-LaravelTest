@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('first_surname', 20);
             $table->string('second_surname', 20);
             $table->string('first_name', 20);
-            $table->string('middle_name', 50);
+            $table->string('middle_name', 50)->nullable();
 
             $table->string('job_country', 20);
             $table->string('id_type', 20);

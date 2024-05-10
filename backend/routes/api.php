@@ -19,7 +19,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::prefix('/employees')->group(function(){
+    Route::get('/', [EmployeesController::class, 'index']);
+    Route::post('/store', [EmployeesController::class, 'store']);
+    Route::get('/show/{employee}', [EmployeesController::class, 'read']);
+    Route::put('/update/{employee}', [EmployeesController::class, 'update']);
+    Route::delete('/destroy/{employee}', [EmployeesController::class, 'destroy']);
+});
 
-Route::get('employees', [EmployeesController::class, 'index']);
-Route::post('employees/store', [EmployeesController::class, 'store']);
+
+
 
